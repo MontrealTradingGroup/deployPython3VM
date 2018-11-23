@@ -1,6 +1,6 @@
 # Setup your Ubuntu 18 Virtual Machine for python3
 
-### Easy/Direct Option: 
+### Option A: Easy/Direct: 
 
 Download our script designed to download and install `pip3` for `python3`:
 
@@ -23,9 +23,43 @@ This command will automatically download [the script python-pip3.sh](https://git
 Execute the script using:
 
 ```
-sh 
+mtg@mtgvb:~$ sh python-pip3.sh
 ```
-You will be prompted for your root password.
+You will be prompted for your root password. Once it is done, the Virtual Machine will reboot.
+
+### Option B: Do It Yourself:
+
+Update and upgrade the virtual machine, just in case some of your software is outdated:
+
+```
+sudo apt-get update && apt-get upgrade
+```
+
+Then, install the package (software) `python3-distutils` which will be necessary to install `pip3`:
+
+```
+sudo apt-get install python3-distutils
+```
+
+Download the `get-pip.py` script which will be used to install `pip3` automatically:
+
+```
+wget https://bootstrap.pypa.io/get-pip.py
+```
+
+Execute the script to install `pip3`:
+
+```
+python3 get-pip.py --user
+```
+
+Reboot your Virtual Machine for the changes to take effect:
+
+```
+sudo reboot
+```
+
+---
 
 # Deploy your Python3 Virtual Environment
 
